@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            /* font-size: 30rem; */
+            margin: 0 auto;
+            /* width: 90vw; */
+            text-align: center;
+            /* border: 1px solid black; */
+            width: 40rem;
+            cursor: pointer;
+            border-radius: 70rem;
+            transition: all .4s;
+        }
+        div:hover{
+            transform: scale(1.2);
+        }
+        body{
+            background-color: rgb(70, 238, 123);
+            font-size: 30rem;
+            /* transition: all 1s; */
+
+        }
+    </style>
+</head>
+<body>
+    <div>😎</div>
+    <script>
+        let div = document.querySelector('div')
+        let body = document.body
+        let emojis = ["🤗","😂","🤣","😍","😒","👌","😘","💕","😁","👍","😎","🤩","😶‍🌫️","😪","😩","😩","😨","🥶","🤪","😵"]
+
+        function randomColor(){
+            let r = Math.floor(Math.random() * 256)
+            let g = Math.floor(Math.random() * 256)
+            let b = Math.floor(Math.random() * 256)
+            let o = Math.floor(Math.random() * 1)
+            return `rgba(${r}, ${g}, ${b}, .6)`
+        }
+        function changeEmoji(){
+            body.style.backgroundColor = randomColor()
+            document.querySelector('div').innerHTML = emojis[Math.floor(Math.random() * emojis.length)]
+        }
+        document.body.addEventListener('keypress', (e)=>{
+            if(e.key == "Enter"){
+                changeEmoji()
+            }
+        })
+        document.addEventListener('keydown', (e)=>{
+            if(e.key == 'ArrowRight'){
+                changeEmoji()
+            }
+        })
+        document.querySelector('div').addEventListener("click", ()=>{
+            changeEmoji()
+        })
+        
+    </script>
+</body>
+</html>
